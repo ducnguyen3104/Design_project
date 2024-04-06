@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Provider Sign Up</title>
+
+        <script
+            src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"
+            defer></script>
+
+        <script src="js/provider-validation.js" defer></script>
+    </head>
+    <body>
+        <h1>Provider Sign Up</h1>
+        <form action="php/provider-signup.php" id="Psignup" method="post">
+            <div>
+                <label for="Ename">Enterprise Name</label>
+                <input type="text" name="Ename" id="Ename">
+            </div>
+            <div>
+                <label for="SIRET">SIRET code</label>
+                <input type="text" name="SIRET" id="SIRET">
+            </div>
+
+            <button>Sign Up</button>
+        </form>
+    </body>
+</html>
