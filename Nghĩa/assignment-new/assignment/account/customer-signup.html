@@ -3,24 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Provider Sign Up</title>
+        <title>Customer Sign Up</title>
 
         <script
             src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"
             defer></script>
 
-        <script src="js/provider-validation.js" defer></script>
+        <script src="js/customer-validation.js" defer></script>
     </head>
     <body>
-        <h1>Provider Sign Up</h1>
-        <form action="php/provider-signup.php" id="Psignup" method="post">
+        <h1>Customer Sign Up</h1>
+        <form action="account_php/customer-signup.php" id="Csignup" method="post">
             <div>
-                <label for="Ename">Enterprise Name</label>
-                <input type="text" name="Ename" id="Ename">
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname">
             </div>
+
             <div>
-                <label for="SIRET">SIRET code</label>
-                <input type="text" name="SIRET" id="SIRET">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname">
             </div>
 
             <button>Sign Up</button>

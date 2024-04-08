@@ -1,5 +1,6 @@
 <?php
 
+    $is_invalid = false;
 
     if($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -14,9 +15,16 @@
 
         if($user) {
            if(password_verify($_POST["password"], $user["Password"])) {
-                die("Login successful");
+                session_start();
+                session_regenerate_id();
+                $_SESSION["user_id"] = $user["UserID"];
+
+                header("Location: /assignment/index.php");
+                exit;
            } 
         }
+
+        $is_invalid = true;
     }
 
 ?>
@@ -31,6 +39,9 @@
 <body>
     <h1>Login</h1>
 
+    <?php if($is_invalid): ?>
+        <em>Invalid login</em>
+    <?php endif; ?>
     <form action="" method="post">
         <div>
             <label for="uname">Username</label>
@@ -41,6 +52,8 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
         </div>
+
+        <p>You don't have an account <a href="/assignment/account/signup.html">Create now</a></p>
 
         <button>Log in</button>
     </form>

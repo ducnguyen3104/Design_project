@@ -7,11 +7,11 @@
         die("Last name is required");
     }
 
-    if(!preg_match('/^[A-Za-z]+$/', $_POST["fname"])) {
+    if(!preg_match('/^[a-zA-Z]+(?: [a-zA-Z]+)*$/', $_POST["fname"])) {
         die("First name can not contain number");
     }
 
-    if(!preg_match('/^[A-Za-z]+$/', $_POST["lname"])) {
+    if(!preg_match('/^[a-zA-Z]+(?: [a-zA-Z]+)*$/', $_POST["lname"])) {
         die("Last name can not contain number");
     }
 

@@ -7,7 +7,7 @@ validator
     },
     {
       validator: (value) => () => {
-        return fetch("/assignment/account/php/validate-username.php?uname=" + 
+        return fetch("/assignment/account/account_php/validate-username.php?uname=" + 
                 encodeURIComponent(value))
               .then(function(response){
                   return response.json();
@@ -16,7 +16,7 @@ validator
                   return json.available;
               });
       },
-      errorMessage: "email   already taken"
+      errorMessage: "Username already taken"
     }
   ])
   .addField('#email', [
@@ -28,7 +28,7 @@ validator
     },
     {
       validator: (value) => () => {
-        return fetch("/assignment/account/php/validate-email.php?email=" + 
+        return fetch("/assignment/account/account_php/validate-email.php?email=" + 
                 encodeURIComponent(value))
               .then(function(response){
                   return response.json();
@@ -37,7 +37,7 @@ validator
                   return json.available;
               });
       },
-      errorMessage: "email   already taken"
+      errorMessage: "Email already taken"
     }
   ])
   .addField('#password', [

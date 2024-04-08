@@ -189,7 +189,6 @@
         session_start();
         $userID = $stmt->insert_id;
         $_SESSION["user_id"] = $userID;
-
         if($_POST["role"] == "customer") {
             header("Location: /assignment/account/customer-signup.html");
         } else {

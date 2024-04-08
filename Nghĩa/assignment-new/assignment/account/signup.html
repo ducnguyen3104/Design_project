@@ -14,7 +14,7 @@
         <h1>Sign Up</h1>
         <h2>Account Information</h2>
 
-            <form action="php/process-signup.php" method="post" id="signup" novalidate>
+            <form action="account_php/process-signup.php" method="post" id="signup" novalidate>
                 <div>
                     <label for="uname">Userame</label>
                     <input type="text" id="uname" name="uname">
@@ -69,6 +69,9 @@
                     <input type="text" id="postal_code_id" name="postal_code_id">
                 </div>
 
+                <div>
+                    <p>Already have account: <a href="account_php/login.php">Log in</a></p>
+                </div>
                 <button>Next</button>
             </form>
     </body>
