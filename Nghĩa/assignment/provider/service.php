@@ -24,7 +24,7 @@
         $sql = "SELECT * FROM service";
         $serviceInfo = $mysqli->query($sql);
 
-        // Count Number of Distinct Services (not subservices)
+        
         $sqlDistinctServiceCount = "SELECT COUNT(DISTINCT service.ServiceID) AS ServiceCount
                                     FROM providerservicelist
                                     INNER JOIN subservice ON providerservicelist.SubServiceID = subservice.SubServiceID
@@ -36,7 +36,7 @@
         $resultDistinctServiceCount = $stmtDistinctServiceCount->get_result();
         $distinctServiceCount = $resultDistinctServiceCount->fetch_assoc()["ServiceCount"];
 
-        // Fetch Subscription Tier Information
+        
         $subscriptionPackID = $provider["SubscriptionPackID"];
 
         $sqlSubscriptionPackTier = "SELECT * FROM subscriptionpack WHERE SubscriptionPackID = $subscriptionPackID";
@@ -46,7 +46,7 @@
 
 
 
-        // Fetch Service Quantity Limit
+        
         $sqlServiceQuantityLimit = "SELECT ServiceQuantityLimit FROM subscriptiontier WHERE SubscriptionTierID = ?";
         $stmtServiceQuantityLimit = $mysqli->prepare($sqlServiceQuantityLimit);
         $stmtServiceQuantityLimit->bind_param("i", $subscriptionTierID);
@@ -80,7 +80,7 @@
             <p><a href="createsubservice.php">Add Sub Service</a></p>
             <?php
 
-                // Get provider ID
+               
                 $sql = "SELECT ProviderID FROM provider WHERE UserID = ?";
                 $stmt = $mysqli->prepare($sql);
                 $stmt->bind_param("i", $_SESSION["user_id"]);
@@ -91,7 +91,7 @@
                     $providerRow = $result->fetch_assoc();
                     $providerID = $providerRow['ProviderID'];
 
-                    // Query provider services
+                    
                     $sqlServices = "SELECT DISTINCT s.ServiceID, s.ServiceName, s.Description
                                     FROM service s
                                     INNER JOIN subservice ss ON s.ServiceID = ss.ServiceID
@@ -110,12 +110,12 @@
                         die("Failed to get result set: " . $stmtServices->error);
                     }
 
-                    // Loop through services and display subservices
+                   
                     if ($resultServices->num_rows > 0) {
                         while ($row = $resultServices->fetch_assoc()) {
                             echo "<h2>{$row['ServiceName']} - {$row['Description']}</h2>";
                             
-                            // Query subservices for this service including service price
+                            
                             $sqlSubservices = "SELECT ss.SubServiceID, ss.SubserviceName, ss.Description, psl.`ServicePrice(EUR)`
                                                 FROM subservice ss
                                                 INNER JOIN providerservicelist psl ON ss.SubServiceID = psl.SubserviceID
@@ -134,7 +134,7 @@
                                 die("Failed to get result set: " . $stmtSubservices->error);
                             }
                             
-                            // Display subservices including service price
+                            
                             if ($resultSubservices->num_rows > 0) {
                                 echo "<ul>";
                                 while ($subRow = $resultSubservices->fetch_assoc()) {
@@ -145,23 +145,20 @@
                                 echo "<p>No subservices found for this service.</p>";
                             }
                             
-                            // Close subservices statement
+                            
                             $stmtSubservices->close();
                         }
                     } else {
                         echo "<p>No services found for this provider.</p>";
                     }
 
-                    // Close services statement
+                   
                     $stmtServices->close();
                 } else {
                     echo "<p>No provider found for this user.</p>";
                 }
 
-                // Close connection
-                $stmt->close();
-                $mysqli->close();
-
+            
             ?>
 
         <?php }

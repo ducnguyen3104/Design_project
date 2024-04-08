@@ -28,7 +28,7 @@
     </form>
 
     <?php
-    // Display search results
+    
     if (isset($_GET['search_result'])) {
         $search_results = json_decode(urldecode($_GET['search_result']), true);
         if (!empty($search_results)) {
