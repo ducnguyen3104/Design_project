@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Form-v10 by Colorlib</title>
+	<title>provider login</title>
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
@@ -19,10 +19,10 @@
 					<h2>General Infomation</h2>
 					<div class="form-row">
 						<select name="title">
-						    <option class="option" value="title">Title</option>
-						    <option class="option" value="businessman">Businessman</option>
-						    <option class="option" value="reporter">Reporter</option>
-						    <option class="option" value="secretary">Secretary</option>
+						    <option class="option" value="title">Main type of bussiness</option>
+						    <option class="option" value="businessman">Nails</option>
+						    <option class="option" value="reporter">SkinCare</option>
+						    <option class="option" value="secretary">MakeUp</option>
 						</select>
 						<span class="select-btn">
 						  	<i class="zmdi zmdi-chevron-down"></i>
@@ -36,36 +36,25 @@
 							<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" required>
 						</div>
 					</div>
+					
 					<div class="form-row">
-						<select name="position">
-						    <option value="position">Position</option>
-						    <option value="director">Director</option>
-						    <option value="manager">Manager</option>
-						    <option value="employee">Employee</option>
-						</select>
-						<span class="select-btn">
-						  	<i class="zmdi zmdi-chevron-down"></i>
-						</span>
+						<input type="text" name="company" class="company" id="company" placeholder="your business name" required>
 					</div>
-					<div class="form-row">
-						<input type="text" name="company" class="company" id="company" placeholder="Company" required>
-					</div>
-					<div class="form-group">
 						<div class="form-row form-row-3">
 							<input type="text" name="business" class="business" id="business" placeholder="Business Arena" required>
 						</div>
 						<div class="form-row form-row-4">
 							<select name="employees">
-							    <option value="employees">Employees</option>
-							    <option value="trainee">Trainee</option>
-							    <option value="colleague">Colleague</option>
-							    <option value="associate">Associate</option>
+							    <option value="employees">how large are your bussiness</option>
+							    <option value="trainee">10 to 20 people</option>
+							    <option value="colleague">20 to 50 people</option>
+							    <option value="associate">50 to 100 people</option>
+								<option value="associate">more than 100 people</option>
 							</select>
 							<span class="select-btn">
 							  	<i class="zmdi zmdi-chevron-down"></i>
 							</span>
 						</div>
-					</div>
 				</div>
 				<div class="form-right">
 					<h2>Contact Details</h2>
