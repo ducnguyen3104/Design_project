@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Directions Example</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Path Search </h1>
+    <input id="address1" type="text" placeholder="Enter customer address">
+    <input id="address2" type="text" placeholder="Enter provider address">
+    <button onclick="calculateAndDisplayRoute();">Show Route</button>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLMiBea-YtoBk55MNLWhu2CWw3J_dm7o&callback=initMap&libraries=&v=weekly" async></script>
+    <script src="assets/js/main_test.js"></script>
+</body>
+</html>
