@@ -55,6 +55,12 @@
         $serviceQuantityLimit = $resultServiceQuantityLimit->fetch_assoc();
         $serviceQuantityLimit = $serviceQuantityLimit["ServiceQuantityLimit"];
 
+        $sql = "SELECT * FROM service ORDER BY ServiceID DESC LIMIT 1";
+        $result = $mysqli->query($sql);
+        $serviceResult = $result->fetch_assoc();
+        $_SESSION["service_name"] = $serviceResult["ServiceName"];
+        $_SESSION["description"] = $serviceResult["Description"];
+
     }
 ?>
 

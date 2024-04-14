@@ -14,7 +14,7 @@
     //check if exist
     $checkQuery = "SELECT SubscriptionPackID FROM subscriptionpack WHERE StartDate = ? AND EndDate = ? AND SubscriptionTierID = ?";
     $stmtCheck = $mysqli->prepare($checkQuery);
-    $stmtCheck->bind_param($start_date, $end_date, $subscriptionTierID);
+    $stmtCheck->bind_param("ssi",$start_date, $end_date, $subscriptionTierID);
     $stmtCheck->execute();
     $stmtCheck->store_result();
 
